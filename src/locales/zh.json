@@ -1,0 +1,12 @@
+{
+  "project-name": "《Secrets of Grindea》 数字谜题解答器",
+  "calculator": {
+    "pad": {
+      "placeholder": "输入谜题"
+    }
+  },
+  "no-solution": "无解",
+  "puzzle": {
+    "invalid": "非法谜题"
+  }
+}

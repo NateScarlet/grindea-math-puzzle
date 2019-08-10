@@ -1,0 +1,12 @@
+{
+  "project-name": "《Secrets of Grindea》 math puzzle solver",
+  "calculator": {
+    "pad": {
+      "placeholder": "Input puzzle"
+    }
+  },
+  "no-solution": "No solution",
+  "puzzle": {
+    "invalid": "Invalid puzzle"
+  }
+}
