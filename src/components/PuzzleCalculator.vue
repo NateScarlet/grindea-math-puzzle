@@ -3,7 +3,7 @@
     PuzzleCalculatorPad(
       ref='pad'
       v-model='padValue'
-      @clear='clear'
+      @clear='focuseOutput'
       @submit='focuseOutput'
       :title='$t("calculator.pad.clear")'
     )
