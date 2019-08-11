@@ -20,6 +20,9 @@ export default class PuzzleCalculator extends Vue {
 <style lang="scss" scoped>
 .puzzle-calculator {
   font-size: 2em;
-  width: 20em;
+  max-width: 20em;
+  @media screen and (max-width: 768px) {
+    font-size: 1.5em;
+  }
 }
 </style>

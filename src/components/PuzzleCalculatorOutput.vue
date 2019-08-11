@@ -60,18 +60,25 @@ export default class PuzzleCalculatorOutput extends Vue {
   align-items: center;
   justify-content: space-between;
   font-size: 1em;
+  flex-wrap: wrap;
+  & > * {
+    margin: 5px;
+  }
   .answer {
     text-align: center;
+    justify-content: center;
     flex: 1 1 auto;
     .invalid {
       color: #f56c6c;
     }
   }
   .expected {
+    margin: 5px auto;
+    flex: 0 0 auto;
     .el-input-number {
       font-size: 1em;
       line-height: 1.5em;
-      height: 1em;
+      height: 1.5em;
       .el-input {
         font-size: 1em;
         .el-input__inner {
