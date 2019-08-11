@@ -46,15 +46,19 @@ export default class PuzzleCalculator extends Vue {
       return;
     }
     if (/^[0-9+\-*]*$/.test(e.key)) {
+      e.preventDefault()
       this.padValue += e.key;
     }
-    if (e.key === 'c') {
+    if (e.key.toLowerCase() === 'c') {
+      e.preventDefault()
       this.$refs.pad.clear();
     }
     if (e.key === 'Enter' || e.key === '=') {
+      e.preventDefault()
       this.focuseOutput();
     }
     if (e.key === 'Delete' || e.key === 'Backspace') {
+      e.preventDefault()
       this.$refs.pad.onBackspace();
     }
   }
