@@ -6,7 +6,12 @@
       template(v-else)
         span.invalid {{ $t('puzzle.invalid') }}
     .expected
-      ElInputNumber(ref='output' v-model='output')
+      ElInputNumber(
+        ref='output'
+        v-model='output'
+        @keydown.enter.native.prevent='$emit("submit")'
+        @keydown.tab.native.prevent='$emit("submit")'
+      )
 </template>
 
 <script lang="ts">

@@ -1,8 +1,15 @@
 <template lang="pug">
   .puzzle-calculator-pad
-    ElInput.display(v-model='valueProxy' clearable :placeholder='$t("calculator.pad.placeholder")')
+    ElInput.display(
+      ref='display'
+      v-model='valueProxy'
+      clearable
+      :placeholder='$t("calculator.pad.placeholder")'
+      @keydown.enter.native.prevent='$emit("submit")'
+      @keydown.tab.native.prevent='$emit("submit")'
+    )
     .row
-      ElButton(@click='valueProxy = valueProxy.slice(0, -1)') ←
+      ElButton(@click='onBackspace') ←
       ElButton(@click='clear') C
     .row
       ElButton(@click='valueProxy += "+"') +
@@ -23,6 +30,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
+import { ElInput } from 'element-ui/types/input';
 
 @Component<PuzzleCalculatorPad>({
   components: {},
@@ -30,6 +38,10 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 export default class PuzzleCalculatorPad extends Vue {
   @Prop({ required: true, type: String })
   value!: string;
+
+  $refs!: {
+    display: ElInput;
+  };
   get valueProxy() {
     return this.value;
   }
@@ -42,6 +54,9 @@ export default class PuzzleCalculatorPad extends Vue {
   clear() {
     this.valueProxy = '';
     this.$emit('clear');
+  }
+  onBackspace() {
+    this.valueProxy = this.valueProxy.slice(0, -1);
   }
 }
 </script>

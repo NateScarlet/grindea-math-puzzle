@@ -1,7 +1,17 @@
 <template lang="pug">
   .puzzle-calculator
-    PuzzleCalculatorPad(v-model='padValue' @clear='onClear' :title='$t("calculator.pad.clear")')
-    PuzzleCalculatorOutput(ref='output' :padValue='padValue')
+    PuzzleCalculatorPad(
+      ref='pad'
+      v-model='padValue'
+      @clear='clear'
+      @submit='focuseOutput'
+      :title='$t("calculator.pad.clear")'
+    )
+    PuzzleCalculatorOutput(
+      ref='output'
+      :padValue='padValue'
+      @submit='focusPadDisplay'
+    )
 </template>
 
 <script lang="ts">
@@ -17,15 +27,39 @@ export default class PuzzleCalculator extends Vue {
 
   $refs!: {
     output: PuzzleCalculatorOutput;
+    pad: PuzzleCalculatorPad;
   };
 
-  onClear() {
+  focusPadDisplay() {
+    this.$refs.pad.$refs.display.focus();
+  }
+  focuseOutput() {
     this.$refs.output.$refs.output.focus();
     const input = this.$refs.output.$refs.output.$el.querySelector('input');
     if (!input) {
       return;
     }
     input.setSelectionRange(0, input.value.length);
+  }
+  onKeyup(e: KeyboardEvent) {
+    if (e.target !== document.body) {
+      return;
+    }
+    if (/^[0-9+\-*]*$/.test(e.key)) {
+      this.padValue += e.key;
+    }
+    if (e.key === 'c') {
+      this.$refs.pad.clear();
+    }
+    if (e.key === 'Enter' || e.key === '=') {
+      this.focuseOutput();
+    }
+    if (e.key === 'Delete' || e.key === 'Backspace') {
+      this.$refs.pad.onBackspace();
+    }
+  }
+  mounted() {
+    document.addEventListener('keyup', this.onKeyup.bind(this));
   }
 }
 </script>
