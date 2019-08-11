@@ -60,7 +60,7 @@ export default class PuzzleCalculatorOutput extends Vue {
     }
 
     const answer = puzzle.findFirstCorrectAnswer(this.puzzle);
-    return answer && answer.join(' ');
+    return answer && puzzle.formatAnswer(answer);
   }
 }
 </script>

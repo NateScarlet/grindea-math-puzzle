@@ -1,4 +1,6 @@
 import { Answer } from './types';
+import { validateOperator } from './validateOperator';
+import { validateOperand } from './validateOperand';
 
 function evaluateOperation(
   leftOperand: number,
@@ -21,25 +23,10 @@ export function evaluateAnswer(answer: Answer): number {
   if (!(answer.length >= 3 && answer.length % 2)) {
     throw new Error(`Invalid Answer length: ${answer.join(' ')}`);
   }
-  let ret = answer[0];
-  if (typeof ret !== 'number') {
-    throw new Error(
-      `Operand is should be a number: ${ret} : ${answer.join(' ')}`
-    );
-  }
+  let ret = validateOperand(answer[0]);
   for (let i = 1; i < answer.length; i += 2) {
-    const operator = answer[i];
-    if (typeof operator !== 'string') {
-      throw new Error(
-        `Operator should be a string: ${operator} : ${answer.join(' ')}`
-      );
-    }
-    const operand = answer[i + 1];
-    if (typeof operand !== 'number') {
-      throw new Error(
-        `Operand is should be a number: ${operand} : ${answer.join(' ')}`
-      );
-    }
+    const operator = validateOperator(answer[i]);
+    const operand = validateOperand(answer[i + 1]);
     ret = evaluateOperation(ret, operator, operand);
   }
   return ret;

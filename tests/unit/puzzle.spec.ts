@@ -91,4 +91,31 @@ describe('puzzle', function(): void {
       expect(result).has.lengthOf(36);
     });
   });
+  describe('format-answer', function(): void {
+    it('simple', function(): void {
+      const answer: puzzle.Answer = [1, '+', 1];
+      const expected = '1 + 1';
+      expect(puzzle.formatAnswer(answer)).to.equals(expected);
+    });
+    it('mixed', function(): void {
+      const answer: puzzle.Answer = [1, '+', 1, '*', 2];
+      const expected = '(1 + 1) * 2';
+      expect(puzzle.formatAnswer(answer)).to.equals(expected);
+    });
+    it('mixed-2', function(): void {
+      const answer: puzzle.Answer = [1, '+', 1, '+', 3, '*', 2];
+      const expected = '(1 + 1 + 3) * 2';
+      expect(puzzle.formatAnswer(answer)).to.equals(expected);
+    });
+    it('mixed-3', function(): void {
+      const answer: puzzle.Answer = [1, '+', 1, '+', 3, '*', 2, '+', 4];
+      const expected = '(1 + 1 + 3) * 2 + 4';
+      expect(puzzle.formatAnswer(answer)).to.equals(expected);
+    });
+    it('mixed-5', function(): void {
+      const answer: puzzle.Answer = [1, '+', 1, '+', 3, '*', 2, '+', 4, '*', 5];
+      const expected = '((1 + 1 + 3) * 2 + 4) * 5';
+      expect(puzzle.formatAnswer(answer)).to.equals(expected);
+    });
+  });
 });
