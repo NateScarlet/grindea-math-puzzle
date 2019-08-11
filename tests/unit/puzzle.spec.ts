@@ -1,11 +1,8 @@
-import { expect } from 'chai';
-import { shallowMount } from '@vue/test-utils';
-import HelloWorld from '@/components/HelloWorld.vue';
 import * as puzzle from '@/puzzle';
-import { Answer } from '@/puzzle/types';
+import { expect } from 'chai';
 
 describe('puzzle', function(): void {
-  describe('iterator-answer', function() {
+  describe('iterator-answer', function(): void {
     it('1-operator', function(): void {
       expect(
         Array.from(
