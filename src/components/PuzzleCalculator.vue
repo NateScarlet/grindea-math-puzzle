@@ -5,7 +5,6 @@
       v-model='padValue'
       @clear='focuseOutput'
       @submit='focuseOutput'
-      :title='$t("calculator.pad.clear")'
     )
     PuzzleCalculatorOutput(
       ref='output'

@@ -10,7 +10,7 @@
     )
     .row
       ElButton(@click='onBackspace') ←
-      ElButton(@click='clear') C
+      ElButton(@click='clear' :title='$t("calculator.pad.clear")') C
     .row
       ElButton(@click='valueProxy += "+"') +
       ElButton(@click='valueProxy += "-"') -
