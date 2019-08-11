@@ -1,5 +1,7 @@
 # [《Secrets of Grindea》](https://store.steampowered.com/app/269770/) 数学谜题解答器
 
+[![Build Status](https://img.shields.io/circleci/project/github/NateScarlet/grindea-math-puzzle.svg)](https://circleci.com/gh/NateScarlet/grindea-math-puzzle)
+
 ![游戏截图](./images/Secrets_Of_Grindea_2019-08-10_21-34-14.png)
 
 [网页应用](https://natescarlet.github.io/grindea-math-puzzle/)
