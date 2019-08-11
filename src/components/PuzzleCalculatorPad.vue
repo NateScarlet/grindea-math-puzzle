@@ -3,7 +3,7 @@
     ElInput.display(v-model='valueProxy' clearable :placeholder='$t("calculator.pad.placeholder")')
     .row
       ElButton(@click='valueProxy = valueProxy.slice(0, -1)') ←
-      ElButton(@click='valueProxy = ""') C
+      ElButton(@click='clear') C
     .row
       ElButton(@click='valueProxy += "+"') +
       ElButton(@click='valueProxy += "-"') -
@@ -38,6 +38,10 @@ export default class PuzzleCalculatorPad extends Vue {
       return;
     }
     this.$emit('input', v);
+  }
+  clear() {
+    this.valueProxy = '';
+    this.$emit('clear');
   }
 }
 </script>

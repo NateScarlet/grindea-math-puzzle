@@ -1,7 +1,7 @@
 <template lang="pug">
   .puzzle-calculator
-    PuzzleCalculatorPad(v-model='padValue')
-    PuzzleCalculatorOutput(:padValue='padValue')
+    PuzzleCalculatorPad(v-model='padValue' @clear='onClear' :title='$t("calculator.pad.clear")')
+    PuzzleCalculatorOutput(ref='output' :padValue='padValue')
 </template>
 
 <script lang="ts">
@@ -14,6 +14,19 @@ import PuzzleCalculatorOutput from './PuzzleCalculatorOutput.vue';
 })
 export default class PuzzleCalculator extends Vue {
   padValue: string = '';
+
+  $refs!: {
+    output: PuzzleCalculatorOutput;
+  };
+
+  onClear() {
+    this.$refs.output.$refs.output.focus();
+    const input = this.$refs.output.$refs.output.$el.querySelector('input');
+    if (!input) {
+      return;
+    }
+    input.setSelectionRange(0, input.value.length);
+  }
 }
 </script>
 

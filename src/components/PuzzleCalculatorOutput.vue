@@ -6,12 +6,13 @@
       template(v-else)
         span.invalid {{ $t('puzzle.invalid') }}
     .expected
-      ElInputNumber(v-model='output')
+      ElInputNumber(ref='output' v-model='output')
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import * as puzzle from '@/puzzle';
+import { ElInputNumber } from 'element-ui/types/input-number';
 
 @Component<PuzzleCalculatorOutput>({
   components: {},
@@ -20,6 +21,11 @@ export default class PuzzleCalculatorOutput extends Vue {
   @Prop({ required: true, type: String })
   padValue!: string;
   output: number = 0;
+
+  $refs!: {
+    output: ElInputNumber;
+  };
+
   get puzzle(): puzzle.Puzzle {
     const ret: puzzle.Puzzle = {
       operands: [],
