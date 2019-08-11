@@ -1,4 +1,4 @@
-# [《Secrets of Grindea》](https://store.steampowered.com/app/269770/) 数字谜题解答器
+# [《Secrets of Grindea》](https://store.steampowered.com/app/269770/) 数学谜题解答器
 
 ![游戏截图](./images/Secrets_Of_Grindea_2019-08-10_21-34-14.png)
 
