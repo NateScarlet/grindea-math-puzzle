@@ -42,7 +42,7 @@
     "prettier": "1.18.2",
     "sass": "1.22.10",
     "sass-loader": "7.3.1",
-    "typescript": "3.5.3",
+    "typescript": "3.6.2",
     "vue-cli-plugin-i18n": "0.6.0",
     "vue-cli-plugin-pug": "1.0.7",
     "vue-template-compiler": "2.6.10"
