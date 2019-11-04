@@ -10,7 +10,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "core-js": "2.6.10",
+    "core-js": "3.3.6",
     "element-ui": "2.12.0",
     "normalize.css": "8.0.1",
     "register-service-worker": "1.6.2",
