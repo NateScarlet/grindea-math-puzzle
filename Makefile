@@ -1,7 +1,9 @@
 
 .PHONY: all test deploy
 
-all: build
+dist: src/* src/*/*
+	rm -rf dist
+	npm run build
 
 gh-pages/.git:
 	git fetch -fn origin gh-pages:gh-pages
@@ -12,9 +14,6 @@ gh-pages/.git:
 test:
 	npm run test:unit
 
-dist: src/* src/*/*
-	rm -rf dist
-	npm run build
 
 deploy: gh-pages/.git dist
 	./scripts/deploy.sh
