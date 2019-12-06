@@ -91,10 +91,10 @@ export default class PuzzleCalculatorOutput extends Vue {
       line-height: 1.5em;
       height: 1.5em;
       .el-input {
-        font-size: 1em;
+        font-size: calc(1em + 1.5px);
         .el-input__inner {
           font-size: 1em;
-          height: 100%;
+          height: 1.5em;
           line-height: 1.5em;
         }
       }

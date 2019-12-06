@@ -4,10 +4,20 @@ import Vue from 'vue';
 import VueI18n, { LocaleMessages } from 'vue-i18n';
 
 export const supportedLanguages = ['en', 'zh'];
-export const locale =
-  navigator.languages.find((i): boolean => supportedLanguages.includes(i)) ||
-  process.env.VUE_APP_I18N_LOCALE ||
-  'en';
+export const locale = ((): string => {
+  if (supportedLanguages.includes(navigator.language)) {
+    return navigator.language;
+  }
+  if (navigator.languages) {
+    const ret = navigator.languages.find((i): boolean =>
+      supportedLanguages.includes(i)
+    );
+    if (ret) {
+      return ret;
+    }
+  }
+  return process.env.VUE_APP_I18N_LOCALE || 'en';
+})();
 
 Vue.use(VueI18n);
 
