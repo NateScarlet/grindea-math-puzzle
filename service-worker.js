@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.242e1e237575cf4c7b782810f7e1e5ff.js"
+  "precache-manifest.98a435f102b43251fd07bf783de414a8.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "grindea-math-puzzle"});
