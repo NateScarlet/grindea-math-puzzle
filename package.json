@@ -20,7 +20,7 @@
     "vue-property-decorator": "8.5.1"
   },
   "devDependencies": {
-    "@types/chai": "4.2.18",
+    "@types/chai": "4.2.19",
     "@types/mocha": "5.2.7",
     "@types/webpack": "4.41.29",
     "@vue/cli-plugin-babel": "4.5.13",
