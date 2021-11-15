@@ -22,7 +22,7 @@
   "devDependencies": {
     "@types/chai": "4.2.22",
     "@types/mocha": "5.2.7",
-    "@types/webpack": "4.41.32",
+    "@types/webpack": "5.28.0",
     "@vue/cli-plugin-babel": "4.5.15",
     "@vue/cli-plugin-eslint": "4.5.15",
     "@vue/cli-plugin-pwa": "4.5.15",
