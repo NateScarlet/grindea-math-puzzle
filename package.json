@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@types/chai": "4.3.11",
-    "@types/mocha": "5.2.7",
+    "@types/mocha": "10.0.8",
     "@types/webpack": "4.41.38",
     "@vue/cli-plugin-babel": "4.5.19",
     "@vue/cli-plugin-eslint": "4.5.19",
